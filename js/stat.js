@@ -48,13 +48,13 @@ window.renderStatistics = function (ctx, players, times) {
       ctx.fillStyle = '#000';
       ctx.fillText(players[1], statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * 1, statisticCoordinateY);
       ctx.fillText(Math.floor(times[1]), statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticTextCoordinateY - (barHeigth * times[i]) / maxTime);
-      ctx.fillStyle = 'hsl(240, 100%, 50%)';
+      ctx.fillStyle = 'rgba(0, 0, 255, 1)';
       ctx.fillRect(statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * 1, statisticCoordinateY - GAP - ((barHeigth * times[i]) / maxTime), BAR_WIDTH, (barHeigth * times[i]) / maxTime);
     } else {
       ctx.fillStyle = '#000';
       ctx.fillText(players[i], statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticCoordinateY);
       ctx.fillText(Math.floor(times[i]), statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticTextCoordinateY - (barHeigth * times[i]) / maxTime);
-      ctx.fillStyle = 'hsl(240, Math.floor(Math.random() * 100), 50%)';
+      ctx.fillStyle = 'rgba(0, 0, 255, Math.random().toFixed(1))';
       ctx.fillRect(statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticCoordinateY - GAP - ((barHeigth * times[i]) / maxTime), BAR_WIDTH, (barHeigth * times[i]) / maxTime);
     }
   }
