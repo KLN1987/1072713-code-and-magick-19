@@ -6,10 +6,11 @@ var CLOUD_Y = 10;
 var GAP = 10;
 var GAP_COLUMNS = 50;
 var BAR_WIDTH = 40;
+var BAR_HEIGHT = 150;
 var statisticCoordinateX = CLOUD_X + GAP * 3;
 var statisticCoordinateY = CLOUD_HEIGHT - GAP * 2;
 var statisticTextCoordinateY = statisticCoordinateY - GAP * 3;
-var barHeigth = CLOUD_HEIGHT - GAP;
+
 
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
@@ -39,17 +40,10 @@ window.renderStatistics = function (ctx, players, times) {
 
 
   for (var i = 0; i < players.length; i++) {
-    if (players[i] === 'Вы') {
-      ctx.fillText(players[i], statisticCoordinateX, statisticCoordinateY);
-      ctx.fillText(Math.floor(times[i]), statisticCoordinateX, statisticTextCoordinateY - (barHeigth * times[i]) / maxTime);
-      ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-      ctx.fillRect(statisticCoordinateX, statisticCoordinateY - GAP - (barHeigth * times[i]) / maxTime, BAR_WIDTH, (barHeigth * times[i]) / maxTime);
-    } else {
-      ctx.fillStyle = '#000';
-      ctx.fillText(players[i], statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticCoordinateY);
-      ctx.fillText(Math.floor(times[i]), statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticTextCoordinateY - (barHeigth * times[i]) / maxTime);
-      ctx.fillStyle = 'hsl(240,' + Math.floor(Math.random() * 100) + '%, 50%)';
-      ctx.fillRect(statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticCoordinateY - GAP - ((barHeigth * times[i]) / maxTime), BAR_WIDTH, (barHeigth * times[i]) / maxTime);
-    }
+    ctx.fillStyle = '#000';
+    ctx.fillText(players[i], statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticCoordinateY);
+    ctx.fillText(Math.floor(times[i]), statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticTextCoordinateY - (BAR_HEIGHT * times[i]) / maxTime);
+    ctx.fillStyle = players[i] === 'Вы' ? 'rgba(255, 0, 0, 1)' : 'hsl(240,' + Math.floor(Math.random() * 100) + '%, 50%)';
+    ctx.fillRect(statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticCoordinateY - GAP - ((BAR_HEIGHT * times[i]) / maxTime), BAR_WIDTH, (BAR_HEIGHT * times[i]) / maxTime);
   }
 };
