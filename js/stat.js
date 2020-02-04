@@ -39,22 +39,16 @@ window.renderStatistics = function (ctx, players, times) {
 
 
   for (var i = 0; i < players.length; i++) {
-    if (i === 0) {
+    if (players[i] === 'Вы') {
       ctx.fillText(players[i], statisticCoordinateX, statisticCoordinateY);
       ctx.fillText(Math.floor(times[i]), statisticCoordinateX, statisticTextCoordinateY - (barHeigth * times[i]) / maxTime);
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
       ctx.fillRect(statisticCoordinateX, statisticCoordinateY - GAP - (barHeigth * times[i]) / maxTime, BAR_WIDTH, (barHeigth * times[i]) / maxTime);
-    } else if (i === 1) {
-      ctx.fillStyle = '#000';
-      ctx.fillText(players[1], statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * 1, statisticCoordinateY);
-      ctx.fillText(Math.floor(times[1]), statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticTextCoordinateY - (barHeigth * times[i]) / maxTime);
-      ctx.fillStyle = 'rgba(0, 0, 255, 1)';
-      ctx.fillRect(statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * 1, statisticCoordinateY - GAP - ((barHeigth * times[i]) / maxTime), BAR_WIDTH, (barHeigth * times[i]) / maxTime);
     } else {
       ctx.fillStyle = '#000';
       ctx.fillText(players[i], statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticCoordinateY);
       ctx.fillText(Math.floor(times[i]), statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticTextCoordinateY - (barHeigth * times[i]) / maxTime);
-      ctx.fillStyle = 'rgba(0, 0, 255, Math.random().toFixed(1))';
+      ctx.fillStyle = 'hsl(240,' + Math.floor(Math.random() * 100) + '%, 50%)';
       ctx.fillRect(statisticCoordinateX + (BAR_WIDTH + GAP_COLUMNS) * i, statisticCoordinateY - GAP - ((barHeigth * times[i]) / maxTime), BAR_WIDTH, (barHeigth * times[i]) / maxTime);
     }
   }
