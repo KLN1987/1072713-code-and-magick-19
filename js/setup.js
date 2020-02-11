@@ -92,16 +92,19 @@ setupClose.addEventListener('keydown', function (evt) {
 });
 
 setupColorCoat.addEventListener('click', function () {
-  setupColorCoat.style.fill = COAT_COLOR[getRandomElement(COAT_COLOR)];
-  setupColorCoatInput.value = setupColorCoat.style.fill;
+  var randomColorCoat = COAT_COLOR[getRandomElement(COAT_COLOR)];
+  setupColorCoat.style.fill = randomColorCoat;
+  setupColorCoatInput.value = randomColorCoat;
 });
 
 setupColorEyes.addEventListener('click', function () {
-  setupColorEyes.style.fill = EYES_COLORS[getRandomElement(EYES_COLORS)];
-  setupColorEyesInput.value = setupColorEyes.style.fill;
+  var randomColorEyes = EYES_COLORS[getRandomElement(EYES_COLORS)];
+  setupColorEyes.style.fill = randomColorEyes;
+  setupColorEyesInput.value = randomColorEyes;
 });
 
 setupFireballWrap.addEventListener('click', function () {
-  setupFireballWrap.style.backgroundColor = FIREBALL_COLOR[getRandomElement(FIREBALL_COLOR)];
-  setupFireballWrapInput.value = setupFireballWrap.style.backgroundColor;
+  var randomFireballColor = FIREBALL_COLOR[getRandomElement(FIREBALL_COLOR)];
+  setupFireballWrap.style.backgroundColor = randomFireballColor;
+  setupFireballWrapInput.value = randomFireballColor;
 });
